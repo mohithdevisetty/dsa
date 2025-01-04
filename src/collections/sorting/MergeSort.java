@@ -21,6 +21,8 @@ public class MergeSort {
         int p1 = 0;
         int p2 = 0;
 
+
+        // Now that you have 2 sub arrays that are sorted each other. Just merge them in a sorted way and return it back.
         int[] newArr = new int[arr1.length + arr2.length];
         int index = 0;
 
@@ -35,6 +37,8 @@ public class MergeSort {
             index++;
         }
 
+
+        // It is possible that any elements left over in the arr1 or arr2 that needs to be added to the newArr.
         while (p1 < arr1.length) {
             newArr[index] = arr1[p1];
             p1++;
