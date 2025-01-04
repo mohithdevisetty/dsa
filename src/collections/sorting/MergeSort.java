@@ -7,8 +7,14 @@ public class MergeSort {
         int[] arr = {1, 4, 3, 5, 987, -76, 0};
         arr = mergeSort(arr);
         System.out.println(Arrays.toString(arr));
+
+        int[] arr2 = {1, 4, 3, 5, 987, -76, 0};
+        mergeSortInPlace(arr2, 0, arr2.length);
+        System.out.println(Arrays.toString(arr2));
     }
 
+
+    // Using Recursion
     static int[] mergeSort(int[] arr) {
         if (arr.length == 1) {
             return arr;
@@ -52,5 +58,56 @@ public class MergeSort {
         }
 
         return newArr;
+    }
+
+    // Using In-Place merge sort
+    static void mergeSortInPlace(int[] arr, int start, int end) {
+        if (end - start == 1) {
+            return;
+        }
+
+        int mid = (start + end) / 2;
+
+        mergeSortInPlace(arr, start, mid);
+        mergeSortInPlace(arr, mid, end);
+
+        mergeInPlace(arr, start, mid, end);
+    }
+
+    private static void mergeInPlace(int[] arr, int s, int m, int e) {
+        int[] mix = new int[e - s];
+
+        int i = s;
+        int j = m;
+        int k = 0;
+
+        while (i < m && j < e) {
+            if (arr[i] < arr[j]) {
+                mix[k] = arr[i];
+                i++;
+            } else {
+                mix[k] = arr[j];
+                j++;
+            }
+            k++;
+        }
+
+        // it may be possible that one of the arrays is not complete
+        // copy the remaining elements
+        while (i < m) {
+            mix[k] = arr[i];
+            i++;
+            k++;
+        }
+
+        while (j < e) {
+            mix[k] = arr[j];
+            j++;
+            k++;
+        }
+
+        for (int l = 0; l < mix.length; l++) {
+            arr[s + l] = mix[l];
+        }
     }
 }
