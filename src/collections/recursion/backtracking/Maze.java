@@ -76,6 +76,7 @@ public class Maze {
         return list;
     }
 
+    // when restrictions like obstacle exists in the maze
     static void pathRestrictions(String p, boolean[][] maze, int r, int c) {
         if (r == maze.length - 1 && c == maze[0].length - 1) {
             System.out.println(p);
