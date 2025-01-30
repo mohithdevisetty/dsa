@@ -12,16 +12,20 @@ public class MainForSLL {
         list.insert(100, 3);
         list.display();
 
-        System.out.println(list.deleteFirst());
-        list.display();
+//        System.out.println(list.deleteFirst());
+//        list.display();
 
-        System.out.println(list.deleteLast());
-        list.display();
+//        System.out.println(list.deleteLast());
+//        list.display();
 
 //        System.out.println(list.delete(100));
-        list.display();
+//        list.display();
 
 //        System.out.println(list.find(100));
-        System.out.println(list.getFromEnd(4));
+//        System.out.println(list.getFromEnd(4));
+
+        list.insertRec(7, 3);
+        list.insertRec(10, 0);
+        list.display();
     }
 }
